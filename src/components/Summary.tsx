@@ -81,7 +81,7 @@ export function TripSummary({ trip, days, activities, onReset, onExport, onImpor
           <InfoLine label="Durata" value={`${tripDayCount(trip)} giorni • ${planned.length} tappe`} />
         </TripCard>
         <TripCard icon={<Info />} title="Da prenotare">
-          {toReserve.length ? toReserve.map((activity) => <InfoLine key={activity.id} label={activityDay(activity)} value={`${activity.time} • ${activity.title}${activity.cost ? ` • ${formatEuro(activity.cost)}` : ""}`} />) : <p className="card-note">Non ci sono prenotazioni in sospeso.</p>}
+          {toReserve.length ? <>{toReserve.slice(0, 8).map((activity) => <InfoLine key={activity.id} label={activityDay(activity)} value={`${activity.time} • ${activity.title}${activity.cost ? ` • ${formatEuro(activity.cost)}` : ""}`} />)}{toReserve.length > 8 && <p className="card-note">+ altre {toReserve.length - 8} da prenotare: le trovi nell’itinerario con lo stato “Da prenotare”.</p>}</> : <p className="card-note">Non ci sono prenotazioni in sospeso.</p>}
         </TripCard>
         <TripCard icon={<Route />} title="Trasporti">
           {transports.length ? transports.map((activity) => <InfoLine key={activity.id} label={activityDay(activity)} value={`${activity.time} • ${activity.title}`} />) : <p className="card-note">Aggiungi voli, navette o altri trasporti dall’itinerario.</p>}

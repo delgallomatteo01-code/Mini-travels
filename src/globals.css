@@ -825,3 +825,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px
 @media print {
   .conflict-banner, .planning-drawer, .toast, .drawer-toggle { display: none !important; }
 }
+
+.day-column-header div { flex-wrap: wrap; gap: 3px 9px; }
+.day-column-header div span { white-space: nowrap; }
+.card-note + .card-note, .info-line + .card-note { margin-top: 10px; }

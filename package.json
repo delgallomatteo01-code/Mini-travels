@@ -10,9 +10,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "start": "tsx server/node/main.ts",
+    "start": "node --disable-warning=ExperimentalWarning --import tsx server/node/main.ts",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "node --disable-warning=ExperimentalWarning --import tsx --test --test-reporter=spec tests/*.test.ts",
     "test:e2e": "tsx tests/e2e/smoke.ts",
     "cf:dev": "npm run build && wrangler dev",
     "cf:migrate:local": "wrangler d1 migrations apply DB --local",
